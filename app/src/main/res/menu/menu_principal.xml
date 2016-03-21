@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Visao.activity.Principal">
+
+    <item
+        android:id="@+id/mnMapa"
+        android:orderInCategory="200"
+        android:title="@string/mapa"
+        android:icon="@drawable/ic_map_white_24dp"
+        app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/mnLogar"
+        android:orderInCategory="200"
+        android:title="Logar"
+        android:icon="@drawable/ic_account_white_24dp"
+        app:showAsAction="ifRoom" />
+</menu>

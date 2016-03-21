@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Visao.activity.LoginActivity">
+
+    <ImageView
+        android:id="@+id/myLogo"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_academia" />
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
+        android:elevation="3dp"
+        android:paddingBottom="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        card_view:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <!--Usuario-->
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:id="@+id/usuarioLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:hint="Usuário"
+                    android:textColor="@android:color/darker_gray"
+                    android:textColorHint="@color/colorAccent"
+                    android:textColorLink="@color/colorAccent" />
+
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+            <!--Senha-->
+            <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                android:id="@+id/senhaLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/usuarioLogin"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:hint="Senha"
+                    android:inputType="textPassword"
+                    android:textColor="@android:color/darker_gray"
+                    android:textColorHint="@color/colorAccent"
+                    android:textColorLink="@color/colorAccent" />
+
+            </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+            <!--Botao logar-->
+            <Button
+                android:id="@+id/btLogar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/senhaLogin"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorAccent"
+                android:elevation="3dp"
+                android:text="Logar" />
+
+            <!--Botao logar com facebook -->
+            <Button
+                android:id="@+id/btLogarFacebook"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/btLogar"
+                android:layout_marginTop="10dp"
+                android:background="#FF3F51B5"
+                android:elevation="3dp"
+                android:text="Logar com facebook" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

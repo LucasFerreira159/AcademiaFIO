@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="andersonsaturnino.com.br.academia_v20">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon_academia"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Visao.activity.Principal"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".Visao.maps.Mapa"
+            android:label="@string/title_activity_mapa" />
+        <activity
+            android:name=".Visao.activity.Cadastro_Exercicios"
+            android:label="@string/title_activity_cadastro__treinos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Visao.activity.Cadastro_Agenda"
+            android:label="@string/title_activity_cadastro__agenda"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Visao.activity.Treinar"
+            android:label="@string/title_activity_treinar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Visao.activity.Cadastro_Usuario"
+            android:label="@string/title_activity_cadastro__usuario"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Visao.activity.Lista_Treinos"
+            android:label="@string/title_activity_lista__treinos"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity android:name=".Visao.activity.LoginActivity"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mnSalvarAgenda"
+        android:orderInCategory="200"
+        android:title="@string/salvar"
+        android:icon="@drawable/ic_check_white_24dp"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/mnListarTreino"
+        android:orderInCategory="200"
+        android:title="@string/listarTreino"
+        android:icon="@drawable/ic_file_chart_white_24dp"
+        app:showAsAction="ifRoom" />
+
+
+</menu>
