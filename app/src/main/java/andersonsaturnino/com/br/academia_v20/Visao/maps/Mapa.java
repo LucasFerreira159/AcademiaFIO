@@ -1,6 +1,7 @@
 package andersonsaturnino.com.br.academia_v20.Visao.maps;
 
 import android.graphics.Bitmap;
+import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.File;
 import java.io.FileOutputStream;
 
 import andersonsaturnino.com.br.academia_v20.R;
@@ -45,9 +47,9 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng ourinhos = new LatLng(-22.97, -49.87);
+        mMap.addMarker(new MarkerOptions().position(ourinhos).title("Marcado em Ourinhos"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(ourinhos));
     }
 
     public void capturarTela() {
@@ -57,22 +59,23 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
             @Override
             public void onSnapshotReady(Bitmap snapshot) {
                 bitmap = snapshot;
+                File file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 try {
-
-                    FileOutputStream out = new FileOutputStream("/mnt/extDdCard/MapaTela" + System.currentTimeMillis() + ".png");
+                    FileOutputStream out = new FileOutputStream("/mnt/sdcard/" + "MapaTela" + System.currentTimeMillis() + ".png");
                     bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+                    out.close();
 
                 } catch (Exception e) {
-                    Toast.makeText(Mapa.this, "Erro ao Salvar a Tela", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Mapa.this, "Erro ao Salvar a Tela" + e.getMessage(), Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
             }
         };
         mMap.snapshot(callback);
+        Toast.makeText(Mapa.this,"Capturado Com Sucesso!", Toast.LENGTH_SHORT).show();
     }
 
     public void btnCapturaTela(View view) {
         capturarTela();
-        Toast.makeText(Mapa.this,"Capturado Com Sucesso!", Toast.LENGTH_SHORT).show();
     }
 }

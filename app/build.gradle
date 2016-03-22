@@ -19,21 +19,22 @@ android {
     }
 }
 
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.github.alamkanak:android-week-view:1.2.6'
-    compile 'com.google.android.gms:play-services:8.3.0'
-    compile 'com.wrapp.floatlabelededittext:library:0.0.6' /*EditText com Label Flutuante*/
+    /*EditText com Label Flutuante*/
     compile('com.github.ganfra:material-spinner:1.1.1') {
         exclude group: 'com.nineoldandroids', module: 'library'
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
-    compile 'com.github.clans:fab:1.6.2'
-    compile 'com.google.android.gms:play-services:8.4.0'
     //noinspection GradleCompatible
-    compile 'com.android.support:cardview-v7:21.0.+'
-    compile 'com.android.support:recyclerview-v7:21.0.+'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.github.alamkanak:android-week-view:1.2.6'
+    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.wrapp.floatlabelededittext:library:0.0.6'
+    compile 'com.github.clans:fab:1.6.2'
+    compile 'com.android.support:cardview-v7:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
 }
