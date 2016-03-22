@@ -1,9 +1,12 @@
 package andersonsaturnino.com.br.academia_v20.Visao.maps;
 
+import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.os.Environment;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,6 +25,8 @@ import andersonsaturnino.com.br.academia_v20.R;
 public class Mapa extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private static String[] PERMISSIONS_STORAGE = {android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,8 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
     }
 
     public void capturarTela() {
+        verificarPermissao(this);
+
         GoogleMap.SnapshotReadyCallback callback = new GoogleMap.SnapshotReadyCallback() {
             Bitmap bitmap;
 
@@ -61,7 +68,8 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
                 bitmap = snapshot;
                 File file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 try {
-                    FileOutputStream out = new FileOutputStream("/mnt/sdcard/" + "MapaTela" + System.currentTimeMillis() + ".png");
+                    FileOutputStream out = new FileOutputStream("sdcard/Screenshot"
+                            + "MapaTela" + System.currentTimeMillis() + ".png");
                     bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
                     out.close();
 
@@ -77,5 +85,13 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
 
     public void btnCapturaTela(View view) {
         capturarTela();
+    }
+
+    public void verificarPermissao(Activity activity) {
+        int permissao = ActivityCompat.checkSelfPermission(activity, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permissao != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE, 1);
+        }
     }
 }
